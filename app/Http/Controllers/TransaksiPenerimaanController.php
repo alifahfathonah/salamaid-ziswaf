@@ -84,7 +84,7 @@ class TransaksiPenerimaanController extends Controller
             ->with('id',$id);       
     }
 
-    public function store(Request $request, $jenis)
+    public function simpan(Request $request, $jenis)
     {
         $data=$request->all();
         if($jenis=='siswa')
@@ -133,6 +133,7 @@ class TransaksiPenerimaanController extends Controller
                 $tr->beras=str_replace(array(',','.'),'',$request->beras);
             else
                 $tr->beras=0;
+                
             $tr->no_kwitansi=$request->kwitansi;
             $tr->penyetor=$muz;
             $tr->id_jenis_setoran=$idjenis;

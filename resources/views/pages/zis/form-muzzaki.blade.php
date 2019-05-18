@@ -42,7 +42,7 @@
                         <label class="control-label">Keterangan</label>
                         <textarea class="form-control" rows="3" name="keterangan" placeholder="Keterangan">{{$id!=-1 ? $det->keterangan : ''}}</textarea>
                     </div>
-                    div class="form-group">
+                    <div class="form-group">
                         <label class="control-label">Jumlah Zakat (Rp)</label>
                         <input type="text" placeholder="Jumlah Rupiah" id="jumlah" name="jumlah" value="{{$id!=-1 ? $det->jumlah : ''}}" class="form-control"> </div>
                     <div class="form-group">

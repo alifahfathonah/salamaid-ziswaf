@@ -24,28 +24,34 @@
                 <table border="0" style="width:100%;margin:20px auto;"  cellpadding="4" cellspacing="0" class="tabel">
                         <tr>
                             <td style="width:10%;font-size:20px;">&nbsp;</td>
-                            <td style="width:20%;font-size:20px;">Nama</td>
+                            <td style="width:35%;font-size:20px;">Nomor Kwitansi</td>
+                            <td style="font-size:20px;">:</td>
+                            <td style="font-size:20px;font-style:bold">#{{$trans->no_kwitansi}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:10%;font-size:20px;">&nbsp;</td>
+                            <td style="width:35%;font-size:20px;">Nama</td>
                             <td style="font-size:20px;">:</td>
                             <td style="font-size:20px;font-style:bold">{{$trans->penyetor}}</td>
                         </tr>
                         @if ($trans->flag==1)
                            <tr>
                                 <td style="width:10%;font-size:20px;">&nbsp;</td>
-                                <td style="width:20%;font-size:20px;">Kelas</td>
+                                <td style="width:35%;font-size:20px;">Kelas</td>
                                 <td style="font-size:20px;">:</td>
                                 <td style="font-size:20px;font-style:bold">{{strtoupper($batch->kategori)}} - {{$batch->nama_batch}}</td>
                             </tr> 
                         @else    
                             <tr>
                                 <td style="width:10%;font-size:20px;">&nbsp;</td>
-                                <td style="width:20%;font-size:20px;">Alamat</td>
+                                <td style="width:35%;font-size:20px;">Alamat</td>
                                 <td style="font-size:20px;">:</td>
                                 <td style="font-size:20px;font-style:bold">{{$trans->muzzaki->alamat}}</td>
                             </tr>
                         @endif
                         <tr>
                             <td style="width:10%;font-size:20px;">&nbsp;</td>
-                            <td style="width:20%;font-size:20px;">Telp/HP</td>
+                            <td style="width:35%;font-size:20px;">Telp/HP</td>
                             <td style="font-size:20px;">:</td>
                             <td style="font-size:20px;font-style:bold">{{isset($trans->muzzaki->telp) ? $trans->muzzaki->telp : '-'}}</td>
                         </tr>
@@ -58,25 +64,35 @@
                             <th style="width:30%;font-size:15px;">Jumlah</th>
                         </tr>
                         
+                        @if ($trans->jumlah_setoran!=0)
                         <tr>
                             <td style="text-align:center">{{$trans->jenis}}</td>
                             <td style="text-align:center">{{$trans->keterangan}}</td>
-                            @if ($trans->jumlah_setoran!=0)
-                                <td style="text-align:right;padding-right:20px">{{number_format($trans->jumlah_setoran)}}</td>
-                            @else
-                                <td style="text-align:right;padding-right:20px">Beras : {{number_format($trans->beras)}} Kg</td>
-                            @endif
+                            <td style="text-align:right;padding-right:20px">{{number_format($trans->jumlah_setoran)}}</td>
                         </tr>
+                        @endif
+
+                        @if ($trans->beras!=0)
+                            <tr>
+                                <td style="text-align:center">{{$trans->jenis}}</td>
+                                <td style="text-align:center">Beras</td>
+                                <td style="text-align:right;padding-right:20px">{{number_format($trans->beras)}} Kg</td>
+                            </tr>
+                        @endif
                         
                     </table>
                     
-                    <div class="text-center">
-                        @if ($trans->jumlah_setoran!=0)
+                    @if ($trans->jumlah_setoran!=0)
+                        <div class="text-center">
                             <h5>Terbilang : {{ucwords(Terbilang($trans->jumlah_setoran))}} Rupiah</h5>
-                        @else
+                        </div>
+                    @endif
+                    @if ($trans->beras!=0)
+                        <div class="text-center">
                             <h5>Zakat Fitrah Menggunakan Beras : {{ucwords(Terbilang($trans->beras))}} Kilogram</h5>
-                        @endif
-                    </div>
+                        </div>
+                    @endif
+                
 
                     <table border="0" style="width:100%;margin:20px auto;"  cellpadding="4" cellspacing="0" class="tabel">
                         <tr>

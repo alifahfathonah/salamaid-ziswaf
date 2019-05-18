@@ -31,7 +31,7 @@ Route::get('zis-muzzaki','TransaksiPenerimaanController@zakatmuzzaki')->middlewa
 Route::get('zis-data/{data}','TransaksiPenerimaanController@data')->name('zis.data');
 Route::get('zis-form/{data}/{id}','TransaksiPenerimaanController@form')->name('zis.form')->middleware('auth');
 Route::get('zis-hapus/{id}','TransaksiPenerimaanController@destroy')->name('zis.hapus')->middleware('auth');
-Route::post('zis-simpan/{jenis}','TransaksiPenerimaanController@store')->name('zis.simpan')->middleware('auth');
+Route::post('zis-simpan/{jenis}','TransaksiPenerimaanController@simpan')->name('zis.simpan')->middleware('auth');
 
 Route::get('siswa-by-kelas/{idkelas}','MuzzakiController@siswa_by_kelas')->middleware('auth');
 Route::get('zakat-hapus/{id}','TransaksiPenerimaanController@destroy')->middleware('auth');
