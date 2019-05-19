@@ -43,6 +43,7 @@ class Controller extends BaseController
         $ptg->email = $request->email;
         $ptg->password = sha1($request->password);
         $ptg->flag = 1;
+        $ptg->hp = '-';
         $ptg->created_at = date('Y-m-d H:i:s');
         $ptg->updated_at = date('Y-m-d H:i:s');
         $ptg->save();
