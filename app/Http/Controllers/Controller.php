@@ -39,8 +39,8 @@ class Controller extends BaseController
         Auth::login($user);
 
         $ptg=new Petugas;
-        $ptg->nama = $user->name;
-        $ptg->email = $user->email;
+        $ptg->nama = $request->name;
+        $ptg->email = $request->email;
         $ptg->password = sha1($request->password);
         $ptg->flag = 1;
         $ptg->created_at = date('Y-m-d H:i:s');
