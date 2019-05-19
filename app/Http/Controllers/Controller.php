@@ -36,7 +36,7 @@ class Controller extends BaseController
         $us->save();
 
         $user=User::where('email',$request->email)->first();
-        Auth::login($user);
+        // Auth::login($user);
 
         $ptg=new Petugas;
         $ptg->nama = $request->name;
