@@ -7,7 +7,10 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 use App\User;
+use App\Model\Muzzaki;
 use Auth;
 class Controller extends BaseController
 {
@@ -34,5 +37,52 @@ class Controller extends BaseController
         $user=User::where('email',$request->email)->first();
         Auth::login($user);
         return redirect('/');
+    }
+
+    public function getmuzzaki()
+    {
+        try
+        {
+            $url='https://keuangan.sekolahalambogor.id/json/json_t_muzzaki';
+            $client = new Client();
+            $result = $client->request('GET', $url);
+            $data = json_decode($result->getBody()->getContents());
+            
+            $k=collect($data);
+        }
+        catch(\Exception $e)
+        {
+            $k=array();
+        }
+
+        // $kontak=array();
+        // foreach($k as $i =>$v)
+        // {
+        //     $kontak[str_slug($v->nama)]=$v->value;
+        // }
+        return $k;
+    }
+    public function gettransaksi()
+    {
+        try
+        {
+            $url='https://keuangan.sekolahalambogor.id/json/json_t_transaksi';
+            $client = new Client();
+            $result = $client->request('GET', $url);
+            $data = json_decode($result->getBody()->getContents());
+            
+            $k=collect($data);
+        }
+        catch(\Exception $e)
+        {
+            $k=array();
+        }
+
+        // $kontak=array();
+        // foreach($k as $i =>$v)
+        // {
+        //     $kontak[str_slug($v->nama)]=$v->value;
+        // }
+        return $k;
     }
 }

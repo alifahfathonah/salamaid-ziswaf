@@ -362,4 +362,14 @@ function gettahunajaranbybulan($bulan,$tahun)
 
     return $tahunajaran;
 }
+
+function objectToArrayId($data)
+{
+		$dt=array();
+		foreach($data as $k=>$v)
+		{
+			$dt[$v->id]=$v;
+		}
+		return $dt;
+}
 ?>

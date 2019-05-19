@@ -46,3 +46,10 @@ Route::get('logout',function(){
     Auth::logout();
     return redirect('/');
 });
+
+
+Route::get('get-muzzaki','Controller@getmuzzaki');
+Route::get('get-transaksi','Controller@gettransaksi');
+Route::get('sync-muzzaki','HomeController@sync_muzzaki');
+Route::get('sync-transaksi','HomeController@sync_transaksi');
+Route::get('sync','HomeController@sync');
