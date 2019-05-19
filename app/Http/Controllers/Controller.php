@@ -36,6 +36,18 @@ class Controller extends BaseController
 
         $user=User::where('email',$request->email)->first();
         Auth::login($user);
+
+        $ptg=new Petugas;
+        $ptg->nama = $user->name;
+        $ptg->email = $user->email;
+        $ptg->password = sha1($request->password);
+        $ptg->flag = 1;
+        $ptg->created_at = date('Y-m-d H:i:s');
+        $ptg->updated_at = date('Y-m-d H:i:s');
+        $ptg->save();
+
+        file_get_contents('http://keuangan.sekolahalambogor.id/json/syncdatauser');
+
         return redirect('/');
     }
 
@@ -85,4 +97,6 @@ class Controller extends BaseController
         // }
         return $k;
     }
+
+    
 }
