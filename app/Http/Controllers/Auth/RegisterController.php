@@ -78,7 +78,7 @@ class RegisterController extends Controller
         $ptg->updated_at = date('Y-m-d H:i:s');
         $ptg->save();
 
-        file_get_contents('http://keuangan.sekolahalambogor.id/json/syncpetugas');
+        file_get_contents('http://keuangan.sekolahalambogor.id/json/syncdatauser');
 
         return $user;
     }
