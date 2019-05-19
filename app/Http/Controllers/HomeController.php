@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Muzzaki;
+use App\Model\Petugas;
 use App\Model\Transaksi_penerimaan;
 class HomeController extends Controller
 {
@@ -116,6 +117,16 @@ class HomeController extends Controller
     public function json_user()
     {
         $muz=User::all();
+        $mz=array();
+        foreach($muz as $k=>$v)
+        {
+            $mz[$v->id]=$v;
+        }
+        return $mz;
+    }
+    public function json_petugas()
+    {
+        $muz=Petugas::all();
         $mz=array();
         foreach($muz as $k=>$v)
         {

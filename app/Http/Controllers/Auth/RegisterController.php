@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Model\Petugas;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -67,6 +68,15 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $ptg=new Petugas;
+        $ptg->nama = $user->name;
+        $ptg->email = $user->email;
+        $ptg->password = sha1($data['password']);
+        $ptg->flag = 1;
+        $ptg->created_at = date('Y-m-d H:i:s');
+        $ptg->updated_at = date('Y-m-d H:i:s');
+        $ptg->save();
 
         file_get_contents('http://keuangan.sekolahalambogor.id/json/syncpetugas');
 

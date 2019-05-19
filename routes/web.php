@@ -57,3 +57,4 @@ Route::get('sync','HomeController@sync');
 Route::get('json-muzzaki','HomeController@json_muzzaki');
 Route::get('json-transaksi','HomeController@json_transaksi');
 Route::get('json-user','HomeController@json_user');
+Route::get('json-petugas','HomeController@json_petugas');
