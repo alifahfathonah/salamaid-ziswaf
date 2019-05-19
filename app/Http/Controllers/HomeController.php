@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Muzzaki;
 use App\Model\Petugas;
+use App\User;
 use App\Model\Transaksi_penerimaan;
 class HomeController extends Controller
 {
