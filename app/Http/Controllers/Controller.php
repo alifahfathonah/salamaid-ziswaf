@@ -11,6 +11,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\User;
 use App\Model\Muzzaki;
+use App\Model\Petugas;
 use Auth;
 class Controller extends BaseController
 {
