@@ -113,4 +113,14 @@ class HomeController extends Controller
         }
         return $mz;
     }
+    public function json_user()
+    {
+        $muz=User::all();
+        $mz=array();
+        foreach($muz as $k=>$v)
+        {
+            $mz[$v->id]=$v;
+        }
+        return $mz;
+    }
 }
