@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('register','Controller@register')->middleware('auth');;
 Route::post('register','Controller@store')->name('register')->middleware('auth');
 Route::get('/beranda', 'DashboardController@index')->name('home')->middleware('auth');
+Route::get('/home', 'DashboardController@index')->name('home')->middleware('auth');
 Route::get('/', 'DashboardController@index')->name('home')->middleware('auth');
 
 Route::resource('muzzaki','MuzzakiController')->middleware('auth');
