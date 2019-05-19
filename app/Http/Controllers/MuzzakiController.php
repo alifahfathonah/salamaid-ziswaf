@@ -37,7 +37,7 @@ class MuzzakiController extends Controller
     {
         $data=$request->all();
         $create=Muzzaki::create($data);
-        
+        file_get_contents('http://keuangan.sekolahalambogor.id/json/syncdata');
         return response()->json([$create]);
     }
     

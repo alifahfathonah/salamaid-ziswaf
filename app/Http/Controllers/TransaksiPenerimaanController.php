@@ -145,7 +145,7 @@ class TransaksiPenerimaanController extends Controller
             return response()->json([$c]);
         }
 
-
+        file_get_contents('http://keuangan.sekolahalambogor.id/json/syncdata');
         // "kwitansi" => "20180523559"
         // "muzzaki" => "5--Widya Wuri Handayani"
         // "jenis" => "4--Infak Program"
