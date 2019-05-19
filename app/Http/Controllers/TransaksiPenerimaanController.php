@@ -113,6 +113,7 @@ class TransaksiPenerimaanController extends Controller
             $tr->penerima=Auth::user()->name;
             $tr->flag=1;
             $c=$tr->save();
+            file_get_contents('https://keuangan.sekolahalambogor.id/json/syncdata');
             return response()->json([$c]);
         }
         elseif($jenis=='muzzaki')
@@ -142,10 +143,11 @@ class TransaksiPenerimaanController extends Controller
             $tr->penerima=Auth::user()->name;
             $tr->flag=2;
             $c=$tr->save();
+            file_get_contents('https://keuangan.sekolahalambogor.id/json/syncdata');
             return response()->json([$c]);
         }
 
-        file_get_contents('http://keuangan.sekolahalambogor.id/json/syncdata');
+        
         // "kwitansi" => "20180523559"
         // "muzzaki" => "5--Widya Wuri Handayani"
         // "jenis" => "4--Infak Program"
