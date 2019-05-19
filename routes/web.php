@@ -53,3 +53,6 @@ Route::get('get-transaksi','Controller@gettransaksi');
 Route::get('sync-muzzaki','HomeController@sync_muzzaki');
 Route::get('sync-transaksi','HomeController@sync_transaksi');
 Route::get('sync','HomeController@sync');
+
+Route::get('json-muzzaki','HomeController@json_muzzaki');
+Route::get('json-transaksi','HomeController@json_transaksi');

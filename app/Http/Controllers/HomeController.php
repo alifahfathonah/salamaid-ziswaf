@@ -92,4 +92,25 @@ class HomeController extends Controller
             }
         }
     }
+
+    public function json_muzzaki()
+    {
+        $muz=Muzzaki::all();
+        $mz=array();
+        foreach($muz as $k=>$v)
+        {
+            $mz[$v->id]=$v;
+        }
+        return $mz;
+    }
+    public function json_transaksi()
+    {
+        $muz=Transaksi_penerimaan::all();
+        $mz=array();
+        foreach($muz as $k=>$v)
+        {
+            $mz[$v->id]=$v;
+        }
+        return $mz;
+    }
 }
